@@ -305,7 +305,7 @@ TEMPLATES = {
 <a class="btn" href="/products/new">Add Product</a></div>
 <table><tr><th>Name</th><th>SKU</th><th>Qty</th><th>Status</th><th>Price</th><th>Actions</th></tr>
 {% for p in items %}<tr><td>{{ p.name }}</td><td>{{ p.sku }}</td><td>{{ p.quantity }}</td>
-<td>{% if is_low(p) %}<span class="badge">Low stock</span>{% else %}<span class="ok">OK</span>{% endif %}</td>
+<td>{% if is_low(p) %}<span class="badge">Low stock</span>{% else %}<span class="ok">IN STOCK</span>{% endif %}</td>
 <td>{{ "%.2f"|format(p.selling_price) if p.selling_price is not none else "-" }}</td>
 <td><form class="inline" method="post" action="/products/{{ p.id }}/adjust"><input name="delta" placeholder="+/-N" required><button>Adjust</button></form>
 <a href="/products/{{ p.id }}/edit">Edit</a>
